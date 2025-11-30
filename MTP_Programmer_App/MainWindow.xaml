@@ -1,0 +1,72 @@
+﻿<Window x:Class="MTP_Programmer_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SLG46824/6 Multi-Programmer" Height="450" Width="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Connection -->
+        <GroupBox Header="Connection" Grid.Row="0" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="COM Port:"/>
+                <ComboBox x:Name="cbPorts" Width="100" Margin="5,0"/>
+                <Button x:Name="btnConnect" Content="Connect" Width="75" Click="btnConnect_Click"/>
+                <Button x:Name="btnRefresh" Content="Refresh" Width="60" Margin="5,0" Click="btnRefresh_Click"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Channels & Firmware -->
+        <GroupBox Header="Channels &amp; Firmware" Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,10">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Ch 1 -->
+                <CheckBox x:Name="chkCh1" Grid.Row="0" Grid.Column="0" Content="Channel 1" VerticalAlignment="Center" Margin="0,5,10,5" IsChecked="True"/>
+                <TextBox x:Name="txtFileCh1" Grid.Row="0" Grid.Column="1" Margin="0,5" IsReadOnly="True"/>
+                <Button x:Name="btnBrowseCh1" Grid.Row="0" Grid.Column="2" Content="..." Width="30" Margin="5,5,0,5" Click="btnBrowseCh1_Click"/>
+
+                <!-- Ch 2 -->
+                <CheckBox x:Name="chkCh2" Grid.Row="1" Grid.Column="0" Content="Channel 2" VerticalAlignment="Center" Margin="0,5,10,5" IsChecked="True"/>
+                <TextBox x:Name="txtFileCh2" Grid.Row="1" Grid.Column="1" Margin="0,5" IsReadOnly="True"/>
+                <Button x:Name="btnBrowseCh2" Grid.Row="1" Grid.Column="2" Content="..." Width="30" Margin="5,5,0,5" Click="btnBrowseCh2_Click"/>
+
+                <!-- Ch 3 -->
+                <CheckBox x:Name="chkCh3" Grid.Row="2" Grid.Column="0" Content="Channel 3" VerticalAlignment="Center" Margin="0,5,10,5" IsChecked="True"/>
+                <TextBox x:Name="txtFileCh3" Grid.Row="2" Grid.Column="1" Margin="0,5" IsReadOnly="True"/>
+                <Button x:Name="btnBrowseCh3" Grid.Row="2" Grid.Column="2" Content="..." Width="30" Margin="5,5,0,5" Click="btnBrowseCh3_Click"/>
+
+                <!-- Ch 4 -->
+                <CheckBox x:Name="chkCh4" Grid.Row="3" Grid.Column="0" Content="Channel 4" VerticalAlignment="Center" Margin="0,5,10,5" IsChecked="True"/>
+                <TextBox x:Name="txtFileCh4" Grid.Row="3" Grid.Column="1" Margin="0,5" IsReadOnly="True"/>
+                <Button x:Name="btnBrowseCh4" Grid.Row="3" Grid.Column="2" Content="..." Width="30" Margin="5,5,0,5" Click="btnBrowseCh4_Click"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Actions -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button x:Name="btnProgram" Content="Write NVM" Width="100" Height="30" Margin="10,0" Click="btnProgram_Click" IsEnabled="False"/>
+            <Button x:Name="btnVerify" Content="Verify" Width="100" Height="30" Margin="10,0" Click="btnVerify_Click" IsEnabled="False"/>
+        </StackPanel>
+
+        <!-- Log -->
+        <GroupBox Header="Log" Grid.Row="4">
+            <TextBox x:Name="txtLog" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+        </GroupBox>
+    </Grid>
+</Window>
